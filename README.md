@@ -28,5 +28,15 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
 - [ ] Fase 5 – Modello
 - [ ] Fase 6 – Conclusioni
 
+## Limiti dell'analisi
+- **Grano duro non disponibile**: il Pink Sheet della Banca Mondiale non ha il prezzo
+  del grano duro (quello della pasta); si usa il grano tenero US HRW come approssimazione.
+- **Ultimo mese provvisorio**: ottobre 2026 è una stima ISTAT; pane, olio di girasole
+  e caffè non sono ancora disponibili per quel mese.
+- **Eventi sovrapposti**: la guerra a Gaza (ottobre 2023) e gli attacchi nel Mar Rosso
+  (novembre 2023) sono troppo vicini per separarne gli effetti con dati mensili.
+- **Effetti di lunga durata**: i rincari post-Covid erano ancora in corso all'inizio della
+  guerra in Ucraina (febbraio 2022), quindi il periodo "normale" precedente è anomalo.
+
 ## Autore
 [Emanuele Mercadante] – [https://www.linkedin.com/in/emanuele-mercadante-274180333/]
