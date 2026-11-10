@@ -37,6 +37,11 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
   (novembre 2023) sono troppo vicini per separarne gli effetti con dati mensili.
 - **Effetti di lunga durata**: i rincari post-Covid erano ancora in corso all'inizio della
   guerra in Ucraina (febbraio 2022), quindi il periodo "normale" precedente è anomalo.
+  - **Iran non coperto dal Geopolitical Risk Index**: l'indice per paese copre 44 paesi
+  ma non l'Iran; la crisi del 2026 è misurata indirettamente tramite gli indici di
+  Israele, Arabia Saudita e Stati Uniti.
+- **Punto di vista occidentale del GPR**: l'indice è costruito su giornali americani e
+  britannici, quindi misura il rischio geopolitico come viene raccontato in Occidente.
 
 ## Autore
 [Emanuele Mercadante] – [https://www.linkedin.com/in/emanuele-mercadante-274180333/]
