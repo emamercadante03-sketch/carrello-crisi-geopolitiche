@@ -42,6 +42,8 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
   Israele, Arabia Saudita e Stati Uniti.
 - **Punto di vista occidentale del GPR**: l'indice è costruito su giornali americani e
   britannici, quindi misura il rischio geopolitico come viene raccontato in Occidente.
+- **Misure fiscali 2026 incomplete** (TODO): in `misure_fiscali.csv` manca la data di
+  inizio del taglio accise solo sul gasolio e la situazione dopo il 25 agosto 2026.
 
 ## Autore
 [Emanuele Mercadante] – [https://www.linkedin.com/in/emanuele-mercadante-274180333/]

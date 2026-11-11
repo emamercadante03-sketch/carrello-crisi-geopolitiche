@@ -1,9 +1,10 @@
-data,evento,paesi_coinvolti,tipo
-2014-02-27,Occupazione russa della Crimea,Russia;Ucraina,guerra
-2020-03-11,Covid-19 dichiarato pandemia dall'OMS,Mondo,pandemia
-2022-02-24,Invasione russa dell'Ucraina,Russia;Ucraina,guerra
-2023-07-17,Fine dell'accordo sul grano del Mar Nero,Russia;Ucraina,commerciale
-2023-10-07,Attacco di Hamas e inizio della guerra a Gaza,Israele;Palestina,guerra
-2023-11-19,Inizio degli attacchi Houthi alle navi nel Mar Rosso,Yemen;Israele;Stati Uniti,guerra
-2025-04-02,Dazi USA del Liberation Day,Stati Uniti;Mondo,commerciale
-2026-02-28,Attacco di USA e Israele all'Iran e blocco dello Stretto di Hormuz,Stati Uniti;Israele;Iran,guerra
+data,evento,paesi_coinvolti,tipo,etichetta
+2014-02-27,Occupazione russa della Crimea,Russia;Ucraina,guerra,Crimea
+2020-03-11,Covid-19 dichiarato pandemia dall'OMS,Mondo,pandemia,Covid
+2022-02-24,Invasione russa dell'Ucraina,Russia;Ucraina,guerra,Ucraina
+2023-07-17,Fine dell'accordo sul grano del Mar Nero,Russia;Ucraina,commerciale,Fine accordo grano
+2023-10-07,Attacco di Hamas e inizio della guerra a Gaza,Israele;Palestina,guerra,Gaza
+2023-11-19,Inizio degli attacchi Houthi alle navi nel Mar Rosso,Yemen;Israele;Stati Uniti,guerra,Mar Rosso
+2025-04-02,Dazi USA del Liberation Day,Stati Uniti;Mondo,commerciale,Dazi USA
+2025-06-13,Guerra dei 12 giorni tra Israele e Iran (con intervento USA),Israele;Iran;Stati Uniti,guerra,Guerra 12 giorni
+2026-02-28,Attacco di USA e Israele all'Iran e blocco dello Stretto di Hormuz,Stati Uniti;Israele;Iran,guerra,Iran
