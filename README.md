@@ -36,7 +36,7 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
 ## Stato del progetto
 - [x] Fase 1 – Domanda e dati
 - [x] Fase 2 – Pulizia
-- [ ] Fase 3 – Esplorazione
+- [x] Fase 3 – Esplorazione
 - [ ] Fase 4 – Correlazioni
 - [ ] Fase 5 – Modello
 - [ ] Fase 6 – Conclusioni
