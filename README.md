@@ -44,4 +44,4 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
   britannici, quindi misura il rischio geopolitico come viene raccontato in Occidente.
 
 ## Autore
-[Emanuele Mercadante] – [https://www.linkedin.com/in/emanuele-mercadante-274180333/]
+[Emanuele Mercadante] – [LinkedIn](https://www.linkedin.com/in/emanuele-mercadante-274180333/)
