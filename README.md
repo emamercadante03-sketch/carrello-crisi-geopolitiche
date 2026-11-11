@@ -23,7 +23,7 @@ I dati originali sono in `data_market/raw/` e non vengono modificati.
 ### Fonti delle date degli eventi        
 | Evento | Data | Fonte |
 |---|---|---|
-| Occupazione russa della Crimea | 2014-02-27 | [Official website of Ukraine](https://war.ukraine.ua/it/faq/quando-e-perche-ha-avuto-inizio-l-invasione-russa-della-crimea/) |
+| Occupazione russa della Crimea | 2014-02-27 | [Wikipedia](https://it.wikipedia.org/wiki/Annessione_della_Crimea_alla_Russia) |
 | Covid-19 dichiarato pandemia dall'OMS | 2020-03-11 | [SkyTG24](https://tg24.sky.it/salute-e-benessere/2026/03/11/covid-pandemia-oms-anniversario) |
 | Invasione russa dell'Ucraina | 2022-02-24 | [Wikipedia](https://it.wikipedia.org/wiki/Invasione_russa_dell%27Ucraina_del_2022) |
 | Fine dell'accordo sul grano del Mar Nero | 2023-07-17 | [SkyTG24](https://tg24.sky.it/mondo/2023/07/17/accordo-grano-russia-ucraina) |
