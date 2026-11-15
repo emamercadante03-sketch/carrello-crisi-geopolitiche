@@ -48,7 +48,6 @@
 - **L'invasione dell'Ucraina è stata la crisi più pesante per il carrello**: dodici mesi dopo, al netto
   dell'andamento normale, latte circa +20 punti, zucchero +50–55, pane +14–17.
 - **Le crisi arrivano allo scaffale soprattutto attraverso l'energia**, non solo attraverso le materie prime.
-- **Un alto rischio geopolitico, da solo, non fa salire i prezzi**: conta quali materie prime e rotte una crisi colpisce.
 
 ## La domanda
 
