@@ -1,12 +1,11 @@
 # Il carrello della spesa e le crisi geopolitiche
 
-**Una crisi lontana fa salire i prezzi al supermercato? Non sempre: dipende da cosa colpisce.**
-Dieci anni di prezzi di sette prodotti del carrello in Italia, messi a confronto con otto crisi
-geopolitiche.
+Come le crisi geopolitiche degli ultimi dieci anni si sono riflesse sui prezzi di sette prodotti
+del carrello in Italia, dal 2015 al 2026.
 
-Il caso più netto è l'olio di girasole: dopo l'invasione dell'Ucraina il suo prezzo al consumo
+Il caso più evidente è l'olio di girasole: dopo l'invasione dell'Ucraina il suo prezzo al consumo
 è salito di **circa il 57% in cinque mesi**. Altre crisi, anche molto seguite dai media, hanno
-lasciato i prezzi alimentari quasi fermi.
+lasciato i prezzi alimentari quasi invariati.
 
 ![Animazione: il prezzo dell'olio di girasole in Italia e sul mercato mondiale dal 2016 al 2026, con le principali crisi](figure/girasole_storico.gif)
 
@@ -18,15 +17,15 @@ dopo uno o due mesi e scende più lentamente.*
 
 ---
 
-## In 60 secondi
+## In breve
 
-- **L'invasione dell'Ucraina è stata la crisi più pesante per il carrello**: dodici mesi dopo,
+- L'invasione dell'Ucraina è stata la crisi con l'effetto maggiore sul carrello: dodici mesi dopo,
   al netto dell'andamento che i prezzi avrebbero avuto comunque, latte circa +20 punti,
   zucchero +50–55, pane +14–17.
-- **Le crisi arrivano allo scaffale soprattutto attraverso l'energia**, con ritardi che vanno
+- Le crisi raggiungono i prezzi al consumo soprattutto attraverso l'energia, con ritardi che vanno
   da circa un mese (carburanti) a quasi un anno (caffè).
-- **Un alto rischio geopolitico, da solo, non fa salire i prezzi**: conta quali materie prime e
-  quali rotte commerciali una crisi colpisce.
+- Un alto rischio geopolitico, da solo, non fa salire i prezzi: conta quali materie prime e quali
+  rotte commerciali una crisi colpisce.
 
 ## La domanda
 
@@ -82,30 +81,30 @@ l'andamento "normale" (vedi [Limiti](#limiti-dellanalisi)). Le altre crisi anali
 2016–2019 (mese 0 = inizio della crisi). Effetti marcati compaiono solo con l'Ucraina, per gli
 alimentari, e con l'Iran, per i carburanti.*
 
-### Olio di girasole: l'effetto più diretto della guerra
+### Olio di girasole
 
 L'Ucraina è tra i principali esportatori mondiali di olio di girasole. Con l'invasione e il blocco
 dei porti del Mar Nero il prezzo mondiale è salito subito; quello italiano lo ha seguito in uno o
 due mesi, con un aumento di circa il 57% in cinque mesi.
 
-- Tenendo conto di materia prima, energia e fertilizzanti, rimane un effetto aggiuntivo di
-  **circa 29 punti** nell'anno successivo all'invasione. Possibili spiegazioni: scarsità del prodotto
+- Tenendo conto di materia prima, energia e fertilizzanti, rimane un effetto aggiuntivo di circa
+  29 punti nell'anno successivo all'invasione. Possibili spiegazioni: scarsità del prodotto
   importato dall'Ucraina e acquisti di scorte nella primavera 2022.
 - Il prezzo è legato più al rischio geopolitico dell'Ucraina (correlazione 0,59) che a quello
   globale (0,23).
 
-### Il gas ha pesato più del grano
+### Il ruolo dell'energia
 
 ![Prezzi italiani e materie prime mondiali in euro, 2015–2026](figure/prezzi_vs_materie_prime.png)
 
 *I prezzi italiani (linea nera) seguono le materie prime mondiali, ma in modo attenuato e con ritardo.*
 
-Nei modelli di regressione il prezzo del gas europeo è significativo per **4 prodotti su 6**
+Nei modelli di regressione il prezzo del gas europeo è significativo per 4 prodotti su 6
 (pane, pasta, zucchero, latte). Per la pasta, tenendo fermo il gas, l'effetto stimato del grano
 scende a meno della metà. I fertilizzanti contano per i prodotti più vicini alla produzione
 agricola (zucchero, olio di girasole, latte); i trasporti non risultano significativi.
 
-### Dalla materia prima allo scaffale: fino a un anno
+### Ritardi tra materie prime e prezzi al consumo
 
 ![Heatmap delle correlazioni tra prezzi italiani e materie prime per ritardo in mesi](figure/heatmap_ritardi.png)
 
@@ -113,7 +112,7 @@ agricola (zucchero, olio di girasole, latte); i trasporti non risultano signific
 
 | Prodotto | Ritardo dalla materia prima | Correlazione |
 |---|---|---|
-| Carburanti | circa 1 mese | **0,89** |
+| Carburanti | circa 1 mese | 0,89 |
 | Pasta | circa 7 mesi | 0,82 |
 | Latte | circa 8 mesi | 0,73 |
 | Pane | circa 10 mesi | 0,75 |
@@ -122,13 +121,13 @@ agricola (zucchero, olio di girasole, latte); i trasporti non risultano signific
 I carburanti si adeguano quasi subito; il caffè impiega quasi un anno, anche perché i torrefattori
 acquistano il caffè verde con largo anticipo. Lo zucchero italiano segue poco il mercato mondiale.
 
-### Il rischio geopolitico, da solo, non basta
+### Rischio geopolitico e prezzi
 
 Il Geopolitical Risk Index registra picchi anche in periodi senza rincari (fine 2015, inizio 2020,
 Gaza 2023). Per tutti i prodotti la correlazione con la materia prima è più alta di quella con il
 rischio globale, anche concedendo a entrambi lo stesso ritardo. Il rischio legato ai paesi
-produttori, invece, funziona: per pane e pasta la correlazione con il rischio della Russia
-è **0,70** e **0,60**, contro 0,37 e 0,15 per il rischio globale.
+produttori è invece più informativo: per pane e pasta la correlazione con il rischio della Russia
+è 0,70 e 0,60, contro 0,37 e 0,15 per il rischio globale.
 
 ### Aumenti rapidi, discese lente
 
@@ -136,13 +135,13 @@ Dopo il picco del 2022 grano e girasole mondiali sono tornati indietro; pane, pa
 rimasti sui livelli raggiunti. Solo i prodotti più vicini alla materia prima (olio di girasole,
 zucchero) sono in parte scesi.
 
-### La guerra in Iran (2026): per ora uno shock energetico
+### La guerra in Iran (2026)
 
-In otto mesi i carburanti sono saliti di **circa 25–32 punti** oltre il loro andamento normale, più che
+In otto mesi i carburanti sono saliti di circa 25–32 punti oltre il loro andamento normale, più che
 con l'Ucraina e nonostante i tagli delle accise. Sui prodotti alimentari l'effetto non è ancora
 visibile: con ritardi di 7–11 mesi, l'analisi andrà aggiornata.
 
-### Non tutto è geopolitica
+### Fattori non geopolitici
 
 Il rincaro più forte del caffè (2025) non è legato a una crisi, ma al prezzo mondiale della Robusta.
 Il grano era in aumento già nel 2021, prima della guerra. Il taglio delle accise del 22 marzo 2022
@@ -216,9 +215,9 @@ Poi eseguire i notebook della cartella `notebooks/` in ordine, da `01_pulizia` a
 - **L'effetto aggiuntivo della guerra è una misura residua**: comprende tutto ciò che materie prime
   ed energia non spiegano nell'anno successivo all'invasione, senza identificarne la causa.
 
-### Cosa ho imparato strada facendo
+### Cosa ho imparato
 
-- **I dati non arrivano mai pronti.** Il CSV dell'ISTAT codificava gli apostrofi in un modo
+- **La preparazione dei dati richiede tempo.** Il CSV dell'ISTAT codificava gli apostrofi in un modo
   che impediva la lettura, e i dati erano espressi in tre basi diverse (2010, 2015, 2025), da
   ricollegare con i coefficienti ufficiali.
 - **I dati possono segnalare ciò che manca.** Un picco del rischio geopolitico a metà 2025 non
