@@ -1,44 +1,47 @@
 # Il carrello della spesa e le crisi geopolitiche
 
-**Una guerra fa salire i prezzi al supermercato? Solo se colpisce le cose giuste.**
-Undici anni di prezzi ISTAT, otto crisi, sette prodotti: dopo l'invasione dell'Ucraina
-l'olio di girasole è salito di **circa il 57% in cinque mesi**, mentre crisi molto più
-raccontate dai media non hanno mosso il carrello.
+**Una crisi lontana fa salire i prezzi al supermercato? Non sempre: dipende da cosa colpisce.**
+Dieci anni di prezzi di sette prodotti del carrello in Italia, messi a confronto con otto crisi
+geopolitiche.
 
-![Event study: dopo l'invasione dell'Ucraina i prodotti alimentari si staccano dal loro andamento normale, le altre crisi no](figure/event_study.png)
+Il caso più netto è l'olio di girasole: dopo l'invasione dell'Ucraina il suo prezzo al consumo
+è salito di **circa il 57% in cinque mesi**. Altre crisi, anche molto seguite dai media, hanno
+lasciato i prezzi alimentari quasi fermi.
 
-*Ogni linea mostra di quanto il prezzo si è discostato, mese per mese, dall'andamento che avrebbe
-avuto crescendo come nel 2016–2019 (mese 0 = inizio della crisi). Solo l'Ucraina (alimentari)
-e l'Iran (carburanti) producono effetti forti.*
+![Animazione: il prezzo dell'olio di girasole in Italia e sul mercato mondiale dal 2016 al 2026, con le principali crisi](figure/girasole_storico.gif)
 
-[I risultati](#cosa-è-successo-al-carrello) · [I notebook](notebooks/) · [Il dataset pulito](data_market/processed/dataset_mensile.csv) · [Limiti](#dove-non-fidarsi-di-questi-numeri)
+*Olio di girasole: prezzo al consumo in Italia (linea scura) e prezzo mondiale in euro (linea chiara),
+media 2025 = 100. Il prezzo mondiale reagisce subito all'invasione; quello italiano lo segue
+dopo uno o due mesi e scende più lentamente.*
+
+[Risultati](#risultati) · [Notebook](notebooks/) · [Dataset pulito](data_market/processed/dataset_mensile.csv) · [Limiti](#limiti-dellanalisi)
 
 ---
 
 ## In 60 secondi
 
-- **L'Ucraina è stata la crisi più forte per il carrello**: dodici mesi dopo l'invasione,
-  al netto dell'andamento normale, latte **+20 punti**, zucchero **+50–55**, pane **+14–17**.
-- **Le crisi arrivano al supermercato soprattutto attraverso l'energia**, con ritardi da
-  **1 mese** (carburanti) a **quasi un anno** (caffè).
-- **Conta dove colpisce una crisi, non quanto se ne parla**: un alto rischio geopolitico,
-  da solo, non fa salire i prezzi.
+- **L'invasione dell'Ucraina è stata la crisi più pesante per il carrello**: dodici mesi dopo,
+  al netto dell'andamento che i prezzi avrebbero avuto comunque, latte circa +20 punti,
+  zucchero +50–55, pane +14–17.
+- **Le crisi arrivano allo scaffale soprattutto attraverso l'energia**, con ritardi che vanno
+  da circa un mese (carburanti) a quasi un anno (caffè).
+- **Un alto rischio geopolitico, da solo, non fa salire i prezzi**: conta quali materie prime e
+  quali rotte commerciali una crisi colpisce.
 
 ## La domanda
 
-Come sono cambiati i prezzi del carrello in Italia durante le crisi geopolitiche,
-dal 2015 a oggi?
+Come sono cambiati i prezzi del carrello in Italia durante le crisi geopolitiche, dal 2015 a oggi?
 
-Dietro c'è una domanda più utile: **attraverso quali canali** una guerra lontana arriva
-allo scontrino? Le materie prime, l'energia, i fertilizzanti, i trasporti? E con quanto
-ritardo? Per rispondere ho confrontato i prezzi italiani di **sette prodotti** (pane, pasta,
-olio di girasole, caffè, zucchero, latte, carburanti) con le materie prime mondiali, il costo
-dell'energia, il cambio euro/dollaro e un indice di rischio geopolitico.
+Più in dettaglio: attraverso quali canali una crisi lontana arriva ai prezzi al consumo
+(materie prime, energia, fertilizzanti, trasporti) e con quale ritardo. L'analisi confronta i prezzi
+italiani di sette prodotti (pane, pasta, olio di girasole, caffè, zucchero, latte, carburanti)
+con le materie prime mondiali, il costo dell'energia, il cambio euro/dollaro e un indice di
+rischio geopolitico.
 
-## Cosa ho costruito
+## Struttura dell'analisi
 
-Un'analisi in quattro notebook, da cinque fonti ufficiali a un dataset mensile unico
-(gennaio 2015 – ottobre 2026, 142 mesi × 33 serie).
+Quattro notebook trasformano cinque fonti ufficiali in un dataset mensile unico
+(gennaio 2015 – ottobre 2026, 142 mesi e 33 serie) e lo analizzano.
 
 ```mermaid
 flowchart LR
@@ -48,58 +51,63 @@ flowchart LR
     D --> E[04 Modello<br/>regressioni ed event study]
 ```
 
-| Notebook | Cosa fa | Output |
+| Notebook | Contenuto | Output |
 |---|---|---|
-| [01_pulizia](notebooks/01_pulizia.ipynb) | unisce le 5 fonti e porta gli indici ISTAT in base 2025 | `dataset_mensile.csv` |
+| [01_pulizia](notebooks/01_pulizia.ipynb) | unione delle 5 fonti, indici ISTAT portati in base 2025 | `dataset_mensile.csv` |
 | [02_esplorazione](notebooks/02_esplorazione.ipynb) | prezzi, variazioni su 12 mesi e rischio geopolitico nel tempo | grafici con le date delle crisi |
-| [03_correlazioni](notebooks/03_correlazioni.ipynb) | legami tra prezzi e materie prime, e con quale ritardo | heatmap dei ritardi |
+| [03_correlazioni](notebooks/03_correlazioni.ipynb) | legami tra prezzi e materie prime, e relativi ritardi | heatmap dei ritardi |
 | [04_modello](notebooks/04_modello.ipynb) | regressioni con controlli ed event study | stime dell'effetto delle crisi |
 
-## Cosa è successo al carrello
+## Risultati
 
-### L'invasione dell'Ucraina si stacca da tutte le altre crisi
+### Quanto ha pesato la crisi ucraina?
 
-Dodici mesi dopo l'invasione, sottraendo l'aumento che ci sarebbe stato comunque:
+Effetto stimato dodici mesi dopo l'invasione, sottraendo l'aumento che ci sarebbe stato comunque:
 
-| Prodotto | Effetto della crisi dopo 12 mesi (punti) |
+| Prodotto | Effetto dopo 12 mesi (punti) |
 |---|---|
-| Zucchero | **+50–55** |
+| Zucchero | +50–55 |
 | Olio di girasole | +22–45 |
 | Latte | circa +20 |
 | Pane | +14–17 |
 | Pasta | +9–19 |
 
-Lo zucchero ha avuto l'effetto più forte. Gli intervalli dipendono da come si definisce
-l'andamento "normale" (spiegato nei [limiti](#dove-non-fidarsi-di-questi-numeri)).
-Nessun'altra crisi analizzata (Covid, Gaza, Mar Rosso, dazi USA) ha avuto effetti comparabili
-sui prodotti alimentari.
+Lo zucchero è il prodotto con l'effetto più ampio. Gli intervalli dipendono da come si definisce
+l'andamento "normale" (vedi [Limiti](#limiti-dellanalisi)). Le altre crisi analizzate
+(Covid, Gaza, Mar Rosso, dazi USA) non hanno avuto effetti paragonabili sui prodotti alimentari.
 
-### L'olio di girasole: l'effetto più diretto della guerra
+![Event study: effetto delle crisi sui prezzi rispetto all'andamento normale 2016–2019](figure/event_study.png)
 
-L'Ucraina è tra i principali esportatori mondiali di olio di girasole. Con l'invasione e il
-blocco dei porti del Mar Nero il prezzo mondiale è salito subito, e quello italiano lo ha
-seguito in 1–2 mesi: **circa +57% in cinque mesi**.
+*Scostamento dei prezzi, mese per mese, dall'andamento che avrebbero avuto crescendo come nel
+2016–2019 (mese 0 = inizio della crisi). Effetti marcati compaiono solo con l'Ucraina, per gli
+alimentari, e con l'Iran, per i carburanti.*
 
-- Anche tenendo conto di materia prima, energia e fertilizzanti, resta un **effetto aggiuntivo
-  di circa 29 punti** nell'anno dopo l'invasione. Ipotesi: scarsità fisica del prodotto
+### Olio di girasole: l'effetto più diretto della guerra
+
+L'Ucraina è tra i principali esportatori mondiali di olio di girasole. Con l'invasione e il blocco
+dei porti del Mar Nero il prezzo mondiale è salito subito; quello italiano lo ha seguito in uno o
+due mesi, con un aumento di circa il 57% in cinque mesi.
+
+- Tenendo conto di materia prima, energia e fertilizzanti, rimane un effetto aggiuntivo di
+  **circa 29 punti** nell'anno successivo all'invasione. Possibili spiegazioni: scarsità del prodotto
   importato dall'Ucraina e acquisti di scorte nella primavera 2022.
-- Il suo prezzo è legato al rischio geopolitico **dell'Ucraina** (correlazione **0,59**)
-  molto più che a quello globale (0,23).
+- Il prezzo è legato più al rischio geopolitico dell'Ucraina (correlazione 0,59) che a quello
+  globale (0,23).
 
 ### Il gas ha pesato più del grano
 
-![Prezzi italiani e materie prime mondiali: i prezzi italiani seguono le materie prime in modo attenuato e restano alti quando queste scendono](figure/prezzi_vs_materie_prime.png)
+![Prezzi italiani e materie prime mondiali in euro, 2015–2026](figure/prezzi_vs_materie_prime.png)
 
-*I prezzi italiani (linea nera) seguono le materie prime mondiali in euro, ma attenuati e in ritardo.*
+*I prezzi italiani (linea nera) seguono le materie prime mondiali, ma in modo attenuato e con ritardo.*
 
-Nei modelli di regressione l'**energia** (gas europeo) è significativa per **4 prodotti su 6**:
-pane, pasta, zucchero e latte. Per la pasta, tenendo fermo il gas, l'effetto del grano scende
-a meno della metà. I fertilizzanti contano per i prodotti più vicini al campo (zucchero, olio di girasole,
-latte); i trasporti non risultano significativi.
+Nei modelli di regressione il prezzo del gas europeo è significativo per **4 prodotti su 6**
+(pane, pasta, zucchero, latte). Per la pasta, tenendo fermo il gas, l'effetto stimato del grano
+scende a meno della metà. I fertilizzanti contano per i prodotti più vicini alla produzione
+agricola (zucchero, olio di girasole, latte); i trasporti non risultano significativi.
 
-### Dal grano al supermercato: fino a un anno di viaggio
+### Dalla materia prima allo scaffale: fino a un anno
 
-![Heatmap dei ritardi: i carburanti seguono il Brent in un mese, gli alimentari le materie prime dopo 7–11 mesi](figure/heatmap_ritardi.png)
+![Heatmap delle correlazioni tra prezzi italiani e materie prime per ritardo in mesi](figure/heatmap_ritardi.png)
 
 *Ogni riga è un prodotto, ogni colonna un ritardo in mesi; la ★ indica il ritardo con il legame più forte.*
 
@@ -111,61 +119,61 @@ latte); i trasporti non risultano significativi.
 | Pane | circa 10 mesi | 0,75 |
 | Caffè | circa 11 mesi | 0,84 |
 
-I carburanti reagiscono quasi subito; il caffè impiega quasi un anno, perché i torrefattori
-comprano il caffè verde con largo anticipo. Lo zucchero italiano segue poco il mercato mondiale.
+I carburanti si adeguano quasi subito; il caffè impiega quasi un anno, anche perché i torrefattori
+acquistano il caffè verde con largo anticipo. Lo zucchero italiano segue poco il mercato mondiale.
 
 ### Il rischio geopolitico, da solo, non basta
 
-Il Geopolitical Risk Index ha picchi anche in momenti senza rincari (fine 2015, inizio 2020,
-Gaza 2023). Per **tutti** i prodotti la correlazione con la materia prima è più alta di quella
-con il rischio globale, anche dando a entrambi lo stesso vantaggio del ritardo.
-Il rischio dei paesi produttori, invece, funziona: per pane e pasta la correlazione con il
-rischio della Russia è **0,70** e **0,60**, contro 0,37 e 0,15 per il rischio globale.
+Il Geopolitical Risk Index registra picchi anche in periodi senza rincari (fine 2015, inizio 2020,
+Gaza 2023). Per tutti i prodotti la correlazione con la materia prima è più alta di quella con il
+rischio globale, anche concedendo a entrambi lo stesso ritardo. Il rischio legato ai paesi
+produttori, invece, funziona: per pane e pasta la correlazione con il rischio della Russia
+è **0,70** e **0,60**, contro 0,37 e 0,15 per il rischio globale.
 
-### I prezzi salgono veloci e scendono lenti
+### Aumenti rapidi, discese lente
 
-Dopo il picco del 2022, grano e girasole mondiali sono tornati indietro; pane, pasta e latte
-no. Solo i prodotti più vicini alla materia prima (olio di girasole, zucchero) sono in parte
-riscesi.
+Dopo il picco del 2022 grano e girasole mondiali sono tornati indietro; pane, pasta e latte sono
+rimasti sui livelli raggiunti. Solo i prodotti più vicini alla materia prima (olio di girasole,
+zucchero) sono in parte scesi.
 
-### Iran 2026: un nuovo shock, per ora solo energetico
+### La guerra in Iran (2026): per ora uno shock energetico
 
-In otto mesi i carburanti sono saliti di **circa +25–32 punti** sopra il loro andamento normale,
-più che con l'Ucraina e nonostante i tagli delle accise. Sugli alimentari l'effetto non si vede
-ancora: con ritardi di 7–11 mesi, è un'analisi da aggiornare.
+In otto mesi i carburanti sono saliti di **circa 25–32 punti** oltre il loro andamento normale, più che
+con l'Ucraina e nonostante i tagli delle accise. Sui prodotti alimentari l'effetto non è ancora
+visibile: con ritardi di 7–11 mesi, l'analisi andrà aggiornata.
 
 ### Non tutto è geopolitica
 
-Il rincaro più forte del caffè (2025) non è legato a nessuna crisi, ma al prezzo mondiale della
-Robusta. Il grano saliva già nel 2021, prima della guerra. E il taglio delle accise del 22 marzo
-2022 si vede a occhio nudo: i carburanti crollano il mese dopo il primo picco.
+Il rincaro più forte del caffè (2025) non è legato a una crisi, ma al prezzo mondiale della Robusta.
+Il grano era in aumento già nel 2021, prima della guerra. Il taglio delle accise del 22 marzo 2022
+si riconosce nei dati: i carburanti scendono il mese successivo al primo picco.
 
-## Come funziona
+## Metodo
 
-- **Correlazioni sulle variazioni, non sui livelli.** Latte italiano e rischio geopolitico degli
-  USA hanno correlazione 0,53 sui livelli e −0,05 sulle variazioni: sui livelli si trovano
-  legami falsi, dovuti solo a una tendenza comune.
-- **Regressioni con controlli**: ogni prodotto è spiegato da materia prima (con ritardo lungo e
-  di 1 mese), energia, trasporti, fertilizzanti e una variabile per l'anno dopo l'invasione.
-- **Event study**: ogni crisi diventa il "mese 0" e si misura quanto il prezzo si discosta
+- **Correlazioni sulle variazioni, non sui livelli.** Latte italiano e rischio geopolitico degli USA
+  hanno correlazione 0,53 sui livelli e −0,05 sulle variazioni: sui livelli emergono legami
+  apparenti dovuti solo a una tendenza comune.
+- **Regressioni con controlli.** Ogni prodotto è spiegato da materia prima (con ritardo lungo e di
+  un mese), energia, trasporti, fertilizzanti e una variabile per l'anno successivo all'invasione.
+- **Event study.** Ogni crisi diventa il "mese 0" e si misura lo scostamento del prezzo
   dall'andamento atteso.
 
 <details>
 <summary>Dettagli tecnici</summary>
 
-- Indici ISTAT NIC (Ecoicop 2) portati in **base 2025 = 100** con i coefficienti di raccordo
-  ufficiali (2015 da base 2010, 2016–2025 da base 2015).
+- Indici ISTAT NIC (Ecoicop 2) portati in base 2025 = 100 con i coefficienti di raccordo ufficiali
+  (2015 da base 2010, 2016–2025 da base 2015).
 - Materie prime convertite da dollari a euro con il cambio medio mensile BCE.
 - Variazioni percentuali su 12 mesi, per eliminare tendenza e stagionalità.
 - Ritardi scelti come quelli con la correlazione più alta tra 0 e 18 mesi.
-- Regressioni OLS con errori standard **HAC (Newey-West)**, 12 ritardi, per tenere conto della
+- Regressioni OLS con errori standard HAC (Newey-West), 12 ritardi, per tenere conto della
   sovrapposizione tra variazioni su 12 mesi.
-- Event study con due definizioni dell'andamento normale: tendenza dei 12 mesi precedenti
-  l'evento e crescita media 2016–2019.
+- Event study con due definizioni dell'andamento normale: tendenza dei 12 mesi precedenti l'evento
+  e crescita media 2016–2019.
 
 </details>
 
-## Provalo tu
+## Come riprodurre l'analisi
 
 ```
 git clone https://github.com/emamercadante03-sketch/carrello-crisi-geopolitiche.git
@@ -175,67 +183,67 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Poi apri i notebook nella cartella `notebooks/` ed eseguili in ordine, da `01_pulizia` a `04_modello`.
+Poi eseguire i notebook della cartella `notebooks/` in ordine, da `01_pulizia` a `04_modello`.
 
-## Dove non fidarsi di questi numeri
+## Limiti dell'analisi
 
-> [!IMPORTANT]
-> Per pasta e olio di girasole l'effetto della guerra è un **intervallo**, non un numero:
-> dipende da come si stima cosa sarebbe successo senza la crisi. Per i carburanti con
-> l'Ucraina il risultato è troppo incerto per essere riportato.
+> [!NOTE]
+> Per pasta e olio di girasole l'effetto della guerra è riportato come intervallo, perché dipende
+> da come si stima l'andamento che i prezzi avrebbero avuto senza la crisi. Per i carburanti,
+> nel caso dell'Ucraina, il risultato è troppo incerto per essere riportato.
 
 **Dati**
-- **Grano duro non disponibile**: il Pink Sheet della Banca Mondiale non ha il prezzo del grano
-  duro (quello della pasta); si usa il grano tenero US HRW come approssimazione.
+- **Grano duro non disponibile**: il Pink Sheet della Banca Mondiale non riporta il grano duro
+  (quello della pasta); si usa il grano tenero US HRW come approssimazione.
 - **2015 incompleto**: pane, olio di girasole e caffè sono segmenti ISTAT introdotti dal 2016.
-- **Ultimo mese provvisorio**: ottobre 2026 è una stima ISTAT; pane, olio di girasole e caffè
-  non sono ancora disponibili per quel mese.
-- **Iran non coperto dal Geopolitical Risk Index**, e l'indice dell'Arabia Saudita resta basso
-  anche durante la crisi di Hormuz: il rischio nel Golfo è misurato solo indirettamente.
-- **Punto di vista occidentale del GPR**: l'indice è costruito su giornali americani e britannici.
+- **Ultimo mese provvisorio**: ottobre 2026 è una stima ISTAT; pane, olio di girasole e caffè non
+  sono ancora disponibili per quel mese.
+- **Iran non coperto dal Geopolitical Risk Index**; l'indice dell'Arabia Saudita resta basso anche
+  durante la crisi di Hormuz, quindi il rischio nel Golfo è misurato solo indirettamente.
+- **Punto di vista occidentale del GPR**: l'indice si basa su giornali americani e britannici.
 
 **Metodo**
-- **Eventi sovrapposti**: Gaza e Mar Rosso sono troppo vicini per separarne gli effetti; le
-  finestre dei dazi USA e della guerra dei 12 giorni contengono la guerra in Iran.
-- **Periodi "normali" non normali**: l'effetto della guerra è calcolato con due definizioni
-  del "normale", la tendenza dei 12 mesi precedenti l'invasione (che include i rincari
-  post-Covid) e la crescita media 2016–2019, precedente al Covid. Per pasta e olio di girasole
-  i due metodi danno risultati diversi, da qui gli intervalli.
-- **Variazioni su 12 mesi sovrapposte**: rendono le correlazioni un po' più alte (corretto nei
-  modelli con errori standard HAC).
-- **Ritardi scelti come i migliori tra 19**: le correlazioni corrispondenti sono un po'
-  ottimiste, e i ritardi vanno letti come "circa".
-- **L'effetto aggiuntivo della guerra è un "contenitore"**: misura tutto ciò che materie prime
-  ed energia non spiegano nell'anno dopo l'invasione, senza identificarne la causa.
+- **Eventi sovrapposti**: Gaza e Mar Rosso sono troppo vicini per separarne gli effetti; le finestre
+  dei dazi USA e della guerra dei 12 giorni comprendono la guerra in Iran.
+- **Periodi "normali" non normali**: l'effetto della guerra è calcolato con due definizioni del
+  "normale", la tendenza dei 12 mesi precedenti l'invasione (che include i rincari post-Covid) e la
+  crescita media 2016–2019, precedente al Covid. Per pasta e olio di girasole i due metodi danno
+  risultati diversi, da cui gli intervalli.
+- **Variazioni su 12 mesi sovrapposte**: tendono ad aumentare le correlazioni (nei modelli si usano
+  errori standard HAC).
+- **Ritardi scelti come i migliori tra 19**: le correlazioni corrispondenti sono leggermente
+  ottimistiche, e i ritardi vanno letti come valori indicativi.
+- **L'effetto aggiuntivo della guerra è una misura residua**: comprende tutto ciò che materie prime
+  ed energia non spiegano nell'anno successivo all'invasione, senza identificarne la causa.
 
 ### Cosa ho imparato strada facendo
 
-- **I dati non arrivano mai pronti.** Il CSV dell'ISTAT "proteggeva" gli apostrofi in un modo
-  che rompeva la lettura, e i dati arrivavano in tre basi diverse (2010, 2015, 2025) da
+- **I dati non arrivano mai pronti.** Il CSV dell'ISTAT codificava gli apostrofi in un modo
+  che impediva la lettura, e i dati erano espressi in tre basi diverse (2010, 2015, 2025), da
   ricollegare con i coefficienti ufficiali.
-- **I dati mi hanno segnalato un evento che mancava.** Un picco del rischio geopolitico a metà
-  2025 non corrispondeva a nessuna crisi del mio elenco: era la guerra dei 12 giorni tra Israele
-  e Iran, che ho poi aggiunto.
-- **Un metodo può dare risultati assurdi.** Prolungando la tendenza precedente, Gaza sembrava
-  aver fatto crollare lo zucchero di 56 punti: in realtà la tendenza "normale" era quella della
+- **I dati possono segnalare ciò che manca.** Un picco del rischio geopolitico a metà 2025 non
+  corrispondeva a nessuna crisi dell'elenco: era la guerra dei 12 giorni tra Israele e Iran,
+  poi aggiunta all'analisi.
+- **Ogni metodo va verificato sui casi limite.** Prolungando la tendenza precedente, Gaza sembrava
+  aver ridotto il prezzo dello zucchero di 56 punti: in realtà la tendenza "normale" era quella della
   crisi ucraina. Da qui il confronto con un periodo stabile (2016–2019).
 
-## Prossimi passi
+## Sviluppi futuri
 
-- Difference-in-differences sui carburanti Italia vs USA per la guerra in Iran, con le accise
-  come controllo (`misure_fiscali.csv`, da completare per il 2026)
+- Difference-in-differences sui carburanti Italia–USA per la guerra in Iran, con le accise come
+  controllo (`misure_fiscali.csv`, da completare per il 2026)
 - Previsione dei prezzi con machine learning
-- Aggiornare l'analisi dell'Iran 2026 sugli alimentari quando saranno disponibili più mesi
+- Aggiornamento dell'analisi dell'Iran 2026 sugli alimentari quando saranno disponibili più mesi
 
 ## Fonti e contatti
 
-| Fonte | Cosa contiene |
+| Fonte | Contenuto |
 |---|---|
-| ISTAT – NIC (Ecoicop 2) | Prezzi al consumo per prodotto, mensili |
-| FAO Food Price Index | Prezzi mondiali del cibo |
-| Geopolitical Risk Index (Caldara & Iacoviello) | Tensioni geopolitiche, mensili |
-| World Bank Pink Sheet | Prezzi delle materie prime |
-| BCE | Cambio euro/dollaro |
+| ISTAT – NIC (Ecoicop 2) | prezzi al consumo per prodotto, mensili |
+| FAO Food Price Index | prezzi mondiali del cibo |
+| Geopolitical Risk Index (Caldara & Iacoviello) | tensioni geopolitiche, mensili |
+| World Bank Pink Sheet | prezzi delle materie prime |
+| BCE | cambio euro/dollaro |
 
 I dati originali sono in `data_market/raw/` e non vengono modificati; il dataset pulito è
 [`data_market/processed/dataset_mensile.csv`](data_market/processed/dataset_mensile.csv).
@@ -257,4 +265,4 @@ I dati originali sono in `data_market/raw/` e non vengono modificati; il dataset
 
 </details>
 
-**Autore:** Emanuele Mercadante – [LinkedIn](https://www.linkedin.com/in/emanuele-mercadante-274180333/) · [I notebook del progetto](notebooks/)
+**Autore:** Emanuele Mercadante – [LinkedIn](https://www.linkedin.com/in/emanuele-mercadante-274180333/)
