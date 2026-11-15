@@ -159,19 +159,6 @@ i trasporti non risultano significativi.
 I carburanti si adeguano quasi subito; il caffè impiega quasi un anno, anche perché i torrefattori acquistano il
 caffè verde con largo anticipo. Lo zucchero italiano segue poco il mercato mondiale.
 
-### Il rischio geopolitico, da solo, non basta
-
-Il Geopolitical Risk Index registra picchi anche in periodi senza rincari (fine 2015, inizio 2020, Gaza 2023).
-Per tutti i prodotti la correlazione con la materia prima è più alta di quella con il rischio globale, anche
-concedendo a entrambi lo stesso ritardo. Il rischio dei paesi produttori, invece, funziona:
-
-| Prodotto | Rischio globale | Rischio del paese produttore |
-|---|---|---|
-| Pane | 0,37 | **0,70** (Russia) |
-| Pasta | 0,15 | **0,60** (Russia) |
-| Olio di girasole | 0,23 | **0,59** (Ucraina) |
-| Carburanti | 0,28 | **0,42** (Russia) |
-
 ### Aumenti rapidi, discese lente
 
 Dopo il picco del 2022 grano e girasole mondiali sono tornati indietro; pane, pasta e latte sono rimasti sui
